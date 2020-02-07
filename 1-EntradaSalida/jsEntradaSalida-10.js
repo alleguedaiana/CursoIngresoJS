@@ -7,11 +7,20 @@ function mostrarAumento()
     var importe;
     var Descuento;
 
-    importe= document.getElementById("importe").value;
-    importe=parseInt(importe);
+    importe=parseInt(document.getElementById("importe").value);
 
-    descuento= importe-((importe*25)/100);
+    descuento= importe-(importe*25/100);
 
     document.getElementById("resultado").value= descuento;
 
 }
+
+/* También se podría haber hecho: 
+var sueldo;
+var aumento;
+var sueldofinal;
+
+sueldo=parseInt(document.getElementById("sueldo").value);
+aumento=sueldo*10/100;
+sueldo final= sueldo+aumento;
+document.getElementById("resultado").value=sueldo final;
