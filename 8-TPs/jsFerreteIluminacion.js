@@ -8,7 +8,7 @@ E.	Si el importe final con descuento suma más de $120  se debe sumar un 10% de 
  ”Usted pago X de IIBB.”, siendo X el impuesto que se pagó. 
 
  */
-function CalcularPrecio () 
+/*function CalcularPrecio () 
 {
      var cantidad;
      var marca;
@@ -99,4 +99,90 @@ function CalcularPrecio ()
         impuesto=preciodescuento*10/100;
         alert("IIBB Usted pago "+impuesto);
     }
+}*/
+
+
+function CalcularPrecio () 
+{
+    var precio=35;
+    var cantidad;
+    var marca;
+    var porcDescuento;
+    var descuento;
+    var precioConDescuento;
+    var importefinal;
+    var ingresoIBB;
+
+    cantidad= parseInt(document.getElementById("Cantidad").value);
+    marca= parseInt(document.getElementById("Marca").value);
+
+    switch (cantidad)
+    {
+        case 1:
+        case 2:
+            porcDescuento=0;
+            break;
+        
+        case 3:
+            if (marca=="ArgentinaLuz")
+            {
+                porcDescuento=15;
+            }
+            else if (marca=="FelipeLamparas")
+            {
+                porcDescuento=10;
+            }
+            else
+            {
+                porcDescuento=5;
+            }
+            break;
+
+        case 4:
+        
+            if (marca=="ArgentinaLux" || marca=="FelipeLamparas")
+            {
+                porcDescuento=25;
+            }
+            else
+            {
+                porcDescuento=20;
+            }
+            break;
+
+        case 5:
+        
+            if (marca=="ArgentinaLuz")
+            {
+                porcDescuento=40;
+            }
+            else
+            {
+                porcDescuento=30;
+            }
+            break;
+
+        default:
+            porcDescuento=50;
+            break;
+    }
+
+    descuento= precio*porcDescuento/100;
+    precioconDescuento= precio-descuento; 
+
+    document.getElementById("precioDescuento").value = precioconDescuento;
+
+    importefinal= precioconDescuento*cantidad;
+
+    if (importefinal > 120)
+    {
+        IBB =importefinal *10/100;
+        importefinal= importefinal + IBB;
+        alert("El importe final es $" + importefinal + "\nIngresos brutos usted pago $" + IBB);
+    }
+    else
+    {
+        alert("El importe final es $" + importefinal);
+    }
+
 }
