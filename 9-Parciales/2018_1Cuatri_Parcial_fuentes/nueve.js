@@ -35,7 +35,6 @@ function mostrar()
 
         if ((temperatura%2)==0)
         {
-            console.log("se ingreso par");
             contPares=contPares+1;
         }
 
