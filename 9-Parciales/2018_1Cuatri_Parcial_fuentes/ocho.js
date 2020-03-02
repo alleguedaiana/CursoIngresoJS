@@ -10,7 +10,7 @@ function mostrar()
     var negativos=0;
     var contNegativos=0;
     var contador=0;
-    var promedio;
+    var promedio=0;
     var numMinimo;
     var letraMinimo;
     var numMaximo;
@@ -19,19 +19,34 @@ function mostrar()
 
    do
    {
+        letra= prompt("Ingrese una letra");
+        while( !((letra>= "A" && letra<="Z") || (letra>= "a" && letra<="z") ))
+        {
+            letra= prompt("No es una letra. Ingrese una letra")
+        }
+
         numero=parseInt(prompt("Ingrese un número entre -100 y 100"));
         while (numero < -100 || numero > 100 || isNaN (numero) )
         {
             numero=parseInt(prompt("Error. Ingrese un número entre -100 y 100"));
         }
 
-        letra= prompt("Ingrese una letra");
-        while( !isNaN(letra))
+        if(numero%2==0)
         {
-            letra= prompt("No es una letra. Ingrese una letra")
+            contPares=contPares+1;
         }
 
-        if(numero>=0)
+        else
+        {
+            contImpares=contImpares+1;
+        }
+
+        if(numero==0)
+        {
+            contCeros=contCeros+1;
+        }
+
+        else if(numero>0)
         {
             positivos=positivos+numero;
             contPositivos=contPositivos+1;
@@ -55,27 +70,16 @@ function mostrar()
             letraMinimo=letra;
         }
 
-        if(numero%2==0 && numero !=0)
-        {
-            contPares=contPares+1;
-        }
-
-        else if(numero==0)
-        {
-            contCeros=contCeros+1;
-        }
-
-        else
-        {
-            contImpares=contImpares+1;
-        }
         seguir=prompt("Quiere seguir?");
 
         contador=contador +1;
 
    }while(seguir== "s");
     
-   promedio=positivos/contPositivos;
+   if (contPositivos!=0)
+   {
+    promedio=positivos/contPositivos;
+   }
 
    document.write("a) Cantidad de numeros pares: "+ contPares + "</br>"
                     + "b) Cantidad de números impares: " + contImpares + "</br>"

@@ -31,8 +31,6 @@ function mostrar()
             temperatura= parseInt(prompt("Incorrecto. Por favor, ingrese una temperatura entre -30 y 30"));
         }
 
-        console.log("se " + temperatura);
-
         if ((temperatura%2)==0)
         {
             contPares=contPares+1;
@@ -64,7 +62,9 @@ function mostrar()
         seguir= prompt("Quiere agregar más información?").toLowerCase();
     }while (seguir=="s");
 
-promedio=acumuladorPeso/contador;
+
+    promedio=acumuladorPeso/contador;
+
 
 document.write("A) Cantidad de temperaturas pares: "+contPares+"</br>"+
                 "B) Marca del producto màs pesado: " + marcaPesada+ "</br>"+
