@@ -6,16 +6,20 @@ function mostrar()
     var temperatura;
     var contPares=0;
     var marcaPesada;
-    var productoPesado;
     var contBajoCero=0;
     var promedio; 
     var acumuladorPeso=0;
     var pesoMaximo;
     var pesoMinimo;
     var seguir;
+    var flag=0;
+
+    //mientras usuario quiera
 
     do
     {
+        //pido datos 
+
         marca= prompt("Por favor, ingresar la marca del producto");
         peso= parseInt(prompt("Por favor, ingrese el peso del producto entre 1 y 100"));
 
@@ -31,21 +35,31 @@ function mostrar()
             temperatura= parseInt(prompt("Incorrecto. Por favor, ingrese una temperatura entre -30 y 30"));
         }
 
+        //analizo datos
+        //a) La cantidad de temperaturas pares.
+
         if ((temperatura%2)==0)
         {
             contPares=contPares+1;
         }
 
-        if (contador==0 || peso > productoPesado)
+        //b) La marca del producto más pesado que no sea congelado.
+
+        if ((flag==0 || peso>pesoMaximo) && temperatura>0)
         {
-            productoPesado=peso;
+            pesoMaximo=peso;
             marcaPesada=marca;
+            flag=1;
         }
+
+        //c) La cantidad de productos que se conservan a menos de 0 grados.
 
         if (temperatura<0)
         {
             contBajoCero=contBajoCero+1;
         }
+
+        //f) El peso máximo y el mínimo.*
 
         if(contador==0 || peso>pesoMaximo)
         {
@@ -63,6 +77,7 @@ function mostrar()
     }while (seguir=="s");
 
 
+    // d) El promedio del peso de todos los productos.
     promedio=acumuladorPeso/contador;
 
 
@@ -76,7 +91,7 @@ document.write("A) Cantidad de temperaturas pares: "+contPares+"</br>"+
 }
 
 /*a) La cantidad de temperaturas pares.
-b) La marca del producto más pesado
+b) La marca del producto más pesado que no sea congelado.
 c) La cantidad de productos que se conservan a menos de 0 grados.
 d) El promedio del peso de todos los productos.
 f) El peso máximo y el mínimo.*/
