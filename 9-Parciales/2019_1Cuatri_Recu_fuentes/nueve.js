@@ -89,7 +89,7 @@ function mostrar()
             contadorMujer=contadorMujer+1;
         }
 
-        if(flag=0 || notafinal>notaMayorAdolescente && edad>=13 && edad <=17)
+        if((flag==0 || notafinal>notaMayorAdolescente && edad>=13) && edad <=17)
         {
             notaMayorAdolescente=notafinal;
             sexoNotaMayor=sexo;
