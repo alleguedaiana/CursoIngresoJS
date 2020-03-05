@@ -106,19 +106,19 @@ if(contadorMenorEdad!=0)
 }
 
 //c) El promedio de notas de los adolescentes. 
-if(contadorMenorEdad!=0)
+if(contadorAdolescente!=0)
 {promedioAdolescente=acumuladorAdolescente/contadorAdolescente;}
 
 //d) El promedio de notas de los mayores	
-if(contadorMenorEdad!=0)
+if(contadorMayores!=0)
 {promedioMayores=acumuladorMayores/contadorMayores;}
 
 //f) El promedio de notas por sexo masculino
-if(contadorMenorEdad!=0)
+if(contadorVaron!=0)
 {promedioVaron=acumuladorVaron/contadorVaron;}
 
 //f) El promedio de notas por sexo femenino
-if(contadorMenorEdad!=0)
+if(contadorMujer!=0)
 {promedioMujer=acumuladorMujer/contadorMujer;}
 
 document.write("a) La cantidad de varones aprobados : "+ contadorVaronAprobado + "</br>");
